@@ -1,0 +1,95 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Dec 26, 2019, 2:54:56 PM
+    Author     : Nurielmeni
+*/
+.fg-blue {
+    color: #004374;
+}
+
+.bg-blue {
+    background-color: #004374;
+}
+
+.fg-white {
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.btn.memad3 {
+    border-radius: 100px;
+    color: #ffffff;
+    text-align: center;
+    padding: 0 30px;
+    line-height: 40px;
+    font-size: 18px;
+    margin: 0 5px;
+}
+
+.btn.memad3.blue {
+    background-color: #004374;
+}
+
+.btn.memad3.white {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.btn.memad3.gradiant {
+    background-image: linear-gradient(to bottom, #81f3ff, #24d2ff);
+    box-shadow: 0 3px 0 0;
+}
+
+.btn.memad3.trans {
+    background-color: transparent;
+    border-radius: solid 1px #004374;
+}
+
+.btn.md.memad3 {
+    height: 56px;
+    
+}
+
+.btn.sm.memad3 {
+    height: 46px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.flex.row {
+    flex-direction: row;
+}
+
+.flex.row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex.column {
+    flex-direction: column;
+}
+
+.inline-flex {
+    display: inline-flex;
+}
+
+@media (max-width: 767px) {
+    .visible-xs.memad-logo-nav-wrap {
+        display: flex !important;
+        position: absolute;
+        top: 12px;
+        right: 4px;
+    }
+}
