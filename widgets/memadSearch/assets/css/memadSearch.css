@@ -7,3 +7,10 @@ and open the template in the editor.
     Created on : Jan 2, 2019, 12:14:26 AM
     Author     : Nurielmeni
 */
+
+.memad-search-wrapper input, .memad-search-wrapper select {
+    height: 43px;
+    width: 236px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

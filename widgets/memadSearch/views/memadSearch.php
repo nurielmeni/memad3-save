@@ -24,7 +24,7 @@ use yii\bootstrap\ActiveForm;
     <?php else : ?>
         <?php $form = ActiveForm::begin([
             'id' => 'search-form' . $name,
-            'options' => ['class' => 'flex ' . ($inline ? 'row' : 'column')]
+            'options' => ['class' => 'text-center flex ' . ($inline ? 'row' : 'column')]
         ]); ?>   
     <?php endif; ?>
 

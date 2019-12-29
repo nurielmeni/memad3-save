@@ -22,6 +22,7 @@ $this->title = 'My Yii Application';
         <?= MemadSearchWidget::widget([
             'model' => $model,
             'inline' => true,
+            'wrapClass' => 'flex center',
         ]) ?>
     </section>
     <section class="about">

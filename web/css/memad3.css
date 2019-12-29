@@ -81,6 +81,10 @@ and open the template in the editor.
     flex-direction: column;
 }
 
+.flex.center {
+    justify-content: center;
+}
+
 .inline-flex {
     display: inline-flex;
 }

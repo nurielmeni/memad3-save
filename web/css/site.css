@@ -63,6 +63,7 @@ main section.header {
     height: 55vw;
     background: url('../images/surfer.jpg') no-repeat center center;
     background-size: cover;
+    position: relative;
 }
 
 section.header h1 {
@@ -73,6 +74,12 @@ section.header h1 {
 
 section.header .actions {
     margin-top: 7.5vw;
+}
+
+section.header .memad-search-wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
 }
 
 main section.about {
