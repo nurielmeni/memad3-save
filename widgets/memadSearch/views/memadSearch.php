@@ -6,14 +6,13 @@
 
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use app\widgets\customSelect\CustomSelectWidget;
 
 
 ?>
-<div class="memad-search-wrapper <?= $wrapClass ?>">
+<div class="memad-search-wrapper <?= $wrapClass . ($inline ? ' inline' : '') ?>">
 
-    <div class="intro">
-        <?= $intro ?>
-    </div>
+
 
     <?php if (isset($action)) : ?>
         <?php $form = ActiveForm::begin([
@@ -28,10 +27,17 @@ use yii\bootstrap\ActiveForm;
         ]); ?>   
     <?php endif; ?>
 
-        <?= $form->field($model, 'location')->textInput(['autofocus' => true, 'placeholder' => $model->getAttributeLabel('location')])->label(false) ?>
+        <?= $form->field($model, 'location', ['options' => ['class' =>  $inline ? 'form-group flex' : 'form-group']])->dropDownList($model->locationOptions, [
+            'autofocus' => true, 
+            'prompt' => $model->getAttributeLabel('location'),
+            'class' => 'nice-select',
+        ])->label($intro) ?>
 
-        <?= $form->field($model, 'profession')->textInput(['placeholder' => $model->getAttributeLabel('profession')])->label(false) ?>
-
+        <?= $form->field($model, 'profession')->dropDownList($model->professionOptions, [
+            'prompt' => $model->getAttributeLabel('profession'),
+            'class' => 'nice-select'
+        ])->label(false) ?>
+   
         <div class="form-group">
             <?= Html::submitButton($submitLabel, ['class' => 'btn memad3 gradiant', 'name' => 'search-button']) ?>
         </div>

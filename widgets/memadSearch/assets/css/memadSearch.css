@@ -10,7 +10,45 @@ and open the template in the editor.
 
 .memad-search-wrapper input, .memad-search-wrapper select {
     height: 43px;
-    width: 236px;
+    width: 236px !important;
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.form-group label {
+    height: 43px;
+    line-height: 43px;
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+section.header .memad-search-wrapper {
+    width: 100%;
+    bottom: 10px;
+    position: relative;
+}
+
+section.header .memad-search-wrapper form {
+    padding-top: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+section.header .memad-search-wrapper.inline {
+    position: absolute;
+}
+
+@media (max-width: 880px) {
+    section.header .memad-search-wrapper form {
+        width: 240px;
+    }
+    
+    section.header .memad-search-wrapper.inline {
+        position: relative;
+    }
+    
+    .form-group.flex.field-searchform-location {
+        display: block;
+    }
 }

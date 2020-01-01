@@ -2,6 +2,7 @@
 
 /* @var $this yii\web\View */
 use app\widgets\memadSearch\MemadSearchWidget;
+use yii\helpers\Url;
 
 $this->title = 'My Yii Application';
 ?>
@@ -23,9 +24,19 @@ $this->title = 'My Yii Application';
             'model' => $model,
             'inline' => true,
             'wrapClass' => 'flex center',
+            'intro' => 'מחפש משרה ספציפית?',
         ]) ?>
     </section>
     <section class="about">
-
+        <div class="row">
+            <div class="col-sm-6 col-xs-12 text-center logo-side">
+                <img src="<?= Url::to('@web/images/logo.png') ?>" alt="Memed3 Logo" >
+                <p>המימד השלישי</p>
+                <p>גיוס והשמה</p>
+            </div>
+            <div class="col-sm-6 col-xs-12 text-side">
+                
+            </div>
+        </div>
     </section>
 </div>

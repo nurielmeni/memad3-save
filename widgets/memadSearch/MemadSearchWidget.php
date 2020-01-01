@@ -13,7 +13,7 @@ class MemadSearchWidget extends Widget {
     public $name;
     public $wrapClass;
     public $model;
-    public $intro;
+    public $intro = false;
     public $inline = false;
     public $submitLabel = 'מצא לי משרה';
     public $action;
@@ -29,6 +29,7 @@ class MemadSearchWidget extends Widget {
 
         $this->view = $this->getView();
         $this->name = !empty($this->name) ?: 'f' . rand();
+        $this->intro = empty($this->intro) ? false : $this->intro;
     }
 
     public function run() {

@@ -35,6 +35,14 @@ class SearchForm extends Model
         ];
     }
 
+    public function getLocationOptions() {
+        return ['0' => 'First', '1' => 'Secound'];
+    }
+    
+    public function getProfessionOptions() {
+        return ['0' => 'First', '1' => 'Secound'];
+    }
+    
     /**
      * Sends an email to the specified email address using the information collected by this model.
      * @param string $email the target email address
