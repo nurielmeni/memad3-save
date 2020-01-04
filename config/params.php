@@ -1,7 +1,10 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
-    'senderEmail' => 'noreply@example.com',
-    'senderName' => 'Example.com mailer',
+    'adminEmail' => 'memad3@cvwebmail.com',
+    'bccEmail' => 'nurielmeni@gmail.com',
+    'senderEmail' => 'memad3@cvwebmail.com',
+    'senderName' => 'Memad-3 Jobs',
+    'memadIn' => '',
+    'memadFb' => '',
 ];

@@ -69,6 +69,10 @@ and open the template in the editor.
     justify-content: space-between;
 }
 
+.flex.space-around {
+    justify-content: space-around;
+}
+
 .flex.row {
     flex-direction: row;
 }

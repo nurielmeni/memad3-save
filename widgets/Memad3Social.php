@@ -14,10 +14,7 @@ class Memad3Social extends \yii\bootstrap\Widget
      * - key: the name of the session flash variable
      * - value: the bootstrap alert type (i.e. danger, success, info, warning)
      */
-    public $socials = [
-        'in'  => '#_',
-        'f'   => '#_',
-    ];
+    public $socials = [];
     
     private function getSocials() {
         $res = '<ul class="social pull-left nav navbar-nav flex">';

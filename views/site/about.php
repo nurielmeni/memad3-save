@@ -8,11 +8,15 @@ $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
-
-    <code><?= __FILE__ ?></code>
+    <div class="slider">
+        <div><h3>First</h3></div>
+        <div><h3>Second</h3></div>
+        <div><h3>Third</h3></div>
+        <div><h3>Forth</h3></div>
+        <div><h3>Fifth</h3></div>
+        <div><h3>Sixth</h3></div>
+    </div>
 </div>
+<script>
+
+</script>

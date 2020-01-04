@@ -23,6 +23,7 @@ body {
 
 .wrap > main {
     height: 100%;
+    margin-top: -126px;
 }
 
 nav .container {
@@ -47,19 +48,20 @@ ul.navbar-nav {
     background-color: #004374;
 }
 
-nav li.nav-item-employers {
+nav .navbar-header li.nav-item-employers {
     height: 40px;
     border-radius: 20px;
     margin: 5px 0;
+    background-color: #004374;
 }
 
-nav li.nav-item-employers a {
+nav .navbar-header li.nav-item-employers a {
     color: #ffffff;
     padding: 10px 30px;
 }
 
 main section.header {
-    min-height: 466px;
+    min-height: 600px;
     height: 55vw;
     background: url('../images/surfer.jpg') no-repeat center center;
     background-size: cover;
@@ -82,11 +84,32 @@ main section.about {
     background-size: cover;
 }
 
+main section.customers {
+    max-width: 1400px;
+    width: 80%;
+    margin: 50px auto;
+}
+
+main section.customers .customers-title {
+    width: 400px;
+    margin: 50px auto;
+    border-bottom: 1px solid #81f3ff;
+    line-height: 30px;
+    font-size: 28px;
+    padding-bottom: 14px;
+    color: #004374;}
+
 .footer {
-    height: 60px;
-    background-color: #f5f5f5;
-    border-top: 1px solid #ddd;
-    padding-top: 20px;
+    background: url('../images/home-bg.png') no-repeat center center;
+    background-size: cover;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+    
+footer .form-group label {
+    width: 236px;
+    text-align: right;
 }
 
 .memad3-jumbotron {
@@ -170,6 +193,8 @@ a.desc:after {
 
 .navbar .navbar-header {
     float: left;
+    margin-left: 0;
+    margin-right: 10px !important;
 }
 
 .navbar .navbar-header .navbar-toggle {
@@ -180,21 +205,29 @@ a.desc:after {
 /******** SECTION ABOUT *********/
 section.about .row {
     max-width: 800px;
-    padding-top: 120px;
+    padding-top: 84px;
     margin: 0 auto;
     color: #fff;
     font-size: 20px;
 }
 
-section.about .row p:first-of-type {
-    margin-bottom: 0;
-    font-size: 30px;
-    font-weight: 300
-}
-
-section.about .row p:last-of-type {
+section.about .row logo-side p:last-of-type {
     font-size: 16px;
     font-weight: bold
+}
+
+
+section.about .row .text-side {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+section.about .row .text-side p {
+    font-size: 16px;
+}
+
+section.about .row .text-side p.actions {
+    margin-top: 20px;
 }
 
 @media (min-width: 767.1px) and (max-width: 816px) {
@@ -269,6 +302,9 @@ section.about .row p:last-of-type {
         margin: 20px 0;
         padding: 0 30px;
     }
+    footer .links.flex.space-around {
+        justify-content: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -281,5 +317,9 @@ section.about .row p:last-of-type {
     
     .visible-xs.memad-logo-nav-wrap {
         margin-top: 5px;
+    }
+    
+    main section.customers .customers-title {
+        width: 80%;
     }
 }

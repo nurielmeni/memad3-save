@@ -45,37 +45,19 @@ AppAsset::register($this);
     NavBar::begin([
         'brandUrl' => false,
         'renderInnerContainer' => true,
-        'headerContent' => \app\widgets\Memad3Social::widget(),
+        'headerContent' => \app\widgets\Memad3Social::widget([
+            'socials' => [
+                'in' => key_exists('memadIn', Yii::$app->params) ? Yii::$app->params['memadIn'] : '#_',
+                'f' => key_exists('memadIn', Yii::$app->params) ? Yii::$app->params['memadFb'] : '#_',
+            ]
+        ]),
         'options' => [
-            'class' => 'navbar navbar-fixed-top',
+            'class' => 'navbar navbar-static-top',
         ],
     ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-left'],
-        'items' => [
-            ['label' => 'בית', 'url' => ['/site/index']],
-            ['label' => 'עלינו', 'url' => ['/site/about']],
-            ['label' => 'לוח המשרות', 'url' => ['/site/jobs']],
-            ['label' => 'צרו קשר', 'url' => ['/site/contact']],
-            ['label' => 'מעסיקים', 'url' => ['/site/employers'], 'options'=> ['class'=>'nav-item-employers bg-blue fg-white'],],
-            
-            /**
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-             * 
-             */
-        ],
-    ]);
+    
+    echo $this->render('nav', ['class' => 'navbar-header', 'user' => false]);
+    
     echo MemadLogoNav::widget(['wrapClass' => 'hidden-xs']);
     NavBar::end();
     ?>
@@ -87,6 +69,7 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
+    <?= $this->render('footer', ['model' => $this->params['model']]) ?>
 </footer>
 
 <?php $this->endBody() ?>
