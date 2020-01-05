@@ -11,7 +11,7 @@ use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SearchForm;
 
-class SiteController extends Controller
+class SiteController extends MemadController
 {
     /**
      * {@inheritdoc}
@@ -62,11 +62,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new SearchForm();
-        $this->view->params['model'] = $model;
-        return $this->render('index', [
-            'model' => $model
-        ]);
+        return $this->render('index');
     }
 
     /**
@@ -116,9 +112,11 @@ class SiteController extends Controller
      * Login action.
      *
      * @return Response|string
-     
+    */     
     public function actionLogin()
     {
+        $this->layout = 'secure';
+        
         if (!Yii::$app->user->isGuest) {
             return $this->goHome();
         }
@@ -133,18 +131,17 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
-    */
+    
     /**
      * Logout action.
      *
      * @return Response
-     
+    */
     public function actionLogout()
     {
         Yii::$app->user->logout();
 
         return $this->goHome();
     }
-    */
     
 }

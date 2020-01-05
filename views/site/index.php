@@ -4,12 +4,12 @@
 use app\widgets\memadSearch\MemadSearchWidget;
 use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
+$this->title = Yii::$app->name;
 ?>
 <div class="site-index">
 
     <section class="header">
-        <?= $this->render('sections/header', ['model' => $model]) ?>
+        <?= $this->render('sections/header', ['model' => $this->params['model']]) ?>
     </section>
     
     <section class="about">

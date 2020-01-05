@@ -53,6 +53,13 @@ class LoginForm extends Model
         }
     }
 
+    public function attributeLabels(): array {
+        return [
+            'username' => Yii::t('app', 'Username'),
+            'password' => Yii::t('app', 'Password'),
+        ];
+    }
+
     /**
      * Logs in a user using the provided username and password.
      * @return bool whether the user is logged in successfully

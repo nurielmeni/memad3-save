@@ -15,9 +15,9 @@ body {
 }
 
 .wrap {
-    min-height: 100%;
     height: auto;
-    margin: 0 auto -60px;
+    min-height: calc(100% - 410px);
+    margin: 0 auto;
     padding: 0 0 60px;
 }
 

@@ -25,6 +25,9 @@ class MemadSearchWidget extends Widget {
 
     public function init() {
         parent::init();
+        
+        if (!isset($this->model)) return '';
+        
         MemadSearchAsset::register(\Yii::$app->view);
 
         $this->view = $this->getView();
