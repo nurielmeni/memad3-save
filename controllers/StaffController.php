@@ -78,8 +78,9 @@ class StaffController extends MemadController
     {
         $model = new Staff();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->upload() && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->upload();
+            if ($model->save()) return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [

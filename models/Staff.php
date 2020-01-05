@@ -51,11 +51,14 @@ class Staff extends \yii\db\ActiveRecord
 
     public function upload()
     {
-        if (!empty($this->imageFile)) {
+        $this->imageFile = UploadedFile::getInstance($this, 'imageFile');
+        
+        if (!empty($this->imageFile) && $this->validate()) {
             $this->imageUrl = Url::to('@web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension, true);
-            $this->imageFile->saveAs(Url::to('@web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension));
+            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**
