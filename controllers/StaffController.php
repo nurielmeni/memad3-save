@@ -8,6 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 use yii\filters\AccessControl;
 
 /**
@@ -79,7 +80,11 @@ class StaffController extends MemadController
         $model = new Staff();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->upload();
+            $image = UploadedFile::getInstance($model, 'imageUrl');
+            if ($image) {
+                $model->imageUrl = 'uploads/images/' . $image->baseName . '.' . $image->extension;
+                $image->saveAs($model->imageUrl);
+            }
             if ($model->save()) return $this->redirect(['view', 'id' => $model->id]);
         }
 

@@ -3,7 +3,6 @@
 namespace app\models;
 
 use Yii;
-use yii\web\UploadedFile;
 use yii\helpers\Url;
 
 /**
@@ -14,16 +13,11 @@ use yii\helpers\Url;
  * @property string $jobTitle
  * @property string $description
  * @property string $email
- * @property string $in
+ * @property string $linkedin
  * @property string $imageUrl
  */
 class Staff extends \yii\db\ActiveRecord
 {
-    /**
-     * @var UploadedFile
-     */
-    public $imageFile;
-
     /**
      * {@inheritdoc}
      */
@@ -40,25 +34,12 @@ class Staff extends \yii\db\ActiveRecord
         return [
             [['fullname', 'jobTitle'], 'required'],
             ['email', 'email'],
-            ['in', 'url'],
+            ['linkedin', 'url'],
             [['description'], 'string'],
             [['fullname'], 'string', 'max' => 64],
             [['jobTitle', 'email', 'in'], 'string', 'max' => 256],
-            [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
-            ['imageUrl', 'safe'],
+            [['imageUrl'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
-    }
-
-    public function upload()
-    {
-        $this->imageFile = UploadedFile::getInstance($this, 'imageFile');
-        
-        if (!empty($this->imageFile) && $this->validate()) {
-            $this->imageUrl = Url::to('@web/uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension, true);
-            $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
-            return true;
-        }
-        return false;
     }
 
     /**
@@ -72,9 +53,8 @@ class Staff extends \yii\db\ActiveRecord
             'jobTitle' => Yii::t('app', 'Job Title'),
             'description' => Yii::t('app', 'Description'),
             'email' => Yii::t('app', 'Email'),
-            'in' => Yii::t('app', 'In'),
+            'linkedin' => Yii::t('app', 'In'),
             'imageUrl' => Yii::t('app', 'Image Url'),
-            'imageFile' => Yii::t('app', 'Image Url'),
         ];
     }
 }

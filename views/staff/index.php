@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'jobTitle',
             'description:ntext',
             'email:email',
-            //'in',
+            //'linkedin',
             //'imageUrl',
 
             ['class' => 'yii\grid\ActionColumn'],

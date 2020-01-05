@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\widgets\imageInput\ImageInputWidget;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Staff */
@@ -20,9 +21,12 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true, 'dir' => 'ltr']) ?>
 
-    <?= $form->field($model, 'in')->textInput(['maxlength' => true, 'dir' => 'ltr']) ?>
+    <?= $form->field($model, 'linkedin')->textInput(['maxlength' => true, 'dir' => 'ltr']) ?>
 
-    <?= $form->field($model, 'imageFile')->fileInput() ?>
+    <?= $form->field($model, 'imageUrl')->widget(ImageInputWidget::class, [
+            'htmlOptions' => ['style' => 'cursor: pointer;'],
+            'placeHolder' => 'uploads/theme/placeholder.svg',
+        ]) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success']) ?>

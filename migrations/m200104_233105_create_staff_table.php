@@ -18,7 +18,7 @@ class m200104_233105_create_staff_table extends Migration
             'jobTitle' => $this->string(256),
             'description' => $this->text(),
             'email' => $this->string(256),
-            'in' => $this->string(256),
+            'linkedin' => $this->string(256),
             'imageUrl' => $this->string(256),
         ]);
     }
