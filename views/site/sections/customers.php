@@ -7,7 +7,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 use app\widgets\owlCarousel\OwlCarousel;
 
-echo Html::tag('div', 'לקוחותינו', ['class' => 'customers-title text-center']);
+echo Html::tag('h2', 'לקוחותינו', ['class' => 'memad-section-title  text-center']);
 
 $items = [
     [

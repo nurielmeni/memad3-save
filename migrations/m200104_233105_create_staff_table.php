@@ -20,7 +20,7 @@ class m200104_233105_create_staff_table extends Migration
             'email' => $this->string(256),
             'linkedin' => $this->string(256),
             'imageUrl' => $this->string(256),
-        ]);
+        ], 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB');
     }
 
     /**

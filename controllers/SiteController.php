@@ -10,6 +10,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SearchForm;
+use app\models\Staff;
 
 class SiteController extends MemadController
 {
@@ -83,6 +84,24 @@ class SiteController extends MemadController
         ]);
     }
 
+    /**
+     * Displays contact page.
+     *
+     * @return Response|string
+     */
+    public function actionEmployers()
+    {
+        $model = new ContactForm();
+        if ($model->load(Yii::$app->request->post()) && $model->contact(Yii::$app->params['adminEmail'])) {
+            Yii::$app->session->setFlash('contactFormSubmitted');
+
+            return $this->refresh();
+        }
+        return $this->render('employers', [
+            'model' => $model,
+        ]);
+    }
+
     
     /**
      * Displays Jobs page.
@@ -101,7 +120,8 @@ class SiteController extends MemadController
      */
     public function actionAbout()
     {
-        return $this->render('about');
+        $employees = Staff::find()->all();
+        return $this->render('about', ['employees' => $employees]);
     }
     
     
@@ -118,7 +138,7 @@ class SiteController extends MemadController
         $this->layout = 'secure';
         
         if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+            return $this->redirect('/staff/index');
         }
 
         $model = new LoginForm();

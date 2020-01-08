@@ -5,5 +5,5 @@ return [
     'dsn' => 'mysql:host=db;dbname=memad',
     'username' => 'memad',
     'password' => 'memad',
-    'charset' => 'utf8',
+    'charset' => 'utf8mb4',
 ];

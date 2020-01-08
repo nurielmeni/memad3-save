@@ -7,6 +7,23 @@ and open the template in the editor.
     Created on : Dec 26, 2019, 2:54:56 PM
     Author     : Nurielmeni
 */
+
+.text-light {
+    font-weight: 200;
+}
+
+.no-margin { 
+    margin: 0; 
+}
+
+.no-padding { 
+    padding: 0 ;
+}
+
+.fg-light-blue {
+    color: #81f3ff;
+}
+
 .fg-blue {
     color: #004374;
 }
@@ -23,22 +40,29 @@ and open the template in the editor.
     background-color: #ffffff;
 }
 
+.bg-gradiant {
+    background-image: linear-gradient(to right, #00c0ff 0%, #88ffff 100%);
+}
+
+.circle-button {
+    border-radius: 50%;
+}
+
 .btn.memad3 {
     border-radius: 100px;
-    color: #ffffff;
     text-align: center;
     padding: 0 30px;
     line-height: 40px;
     font-size: 18px;
-    margin: 0 5px;
 }
 
 .btn.memad3.blue {
+    color: #ffffff;
     background-color: #004374;
 }
 
 .btn.memad3.white {
-    color: #000000;
+    color: #004374;
     background-color: #ffffff;
 }
 
@@ -49,7 +73,7 @@ and open the template in the editor.
 
 .btn.memad3.trans {
     background-color: transparent;
-    border-radius: solid 1px #004374;
+    border: solid 1px;
 }
 
 .btn.md.memad3 {
@@ -93,7 +117,19 @@ and open the template in the editor.
     display: inline-flex;
 }
 
+.flex.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex.flex-rwrap {
+    flex-wrap: wrap-reverse;
+}
+
 @media (max-width: 767px) {
+    div.wrap.site-about .visible-xs.memad-logo-nav-wrap {
+        color: #fff;
+    }
+    
     .visible-xs.memad-logo-nav-wrap {
         display: flex !important;
         position: absolute;

@@ -31,14 +31,18 @@ $this->params['breadcrumbs'][] = $this->title;
       
     <?php endif; ?>
         <header>
-            <h1 class="text-center fg-white">צרו איתנו קשר</h1>
+            <h1 class="text-center fg-white">מעסיקים</h1>
         </header>
-        <div class="flex center flex-rwrap contact-body">
+        <div class="flex center flex-rwrap contact-body employers">
             <div class="left">
-                <div class="map"></div>
-                <div class="flex space-around flex-wrap">
-                    <span>מייל talya@memad3.com</span>
-                    <span>טלפון 054-6868011 | 072-2201112</span>
+                <div class="employer-info bg-blue fg-white flex column space-between">
+                    <p class="first">נשמח לתת לכם מענה ולהתאים עבורכם מנהל/ת לקוח
+שילווה את התהליכים מקצה לקצה תוך מתן מנעה מקצועי 
+וממוקד לדרישות הגיוס בחרתכם.</p>
+                    <p class="second fg-light-blue">לפרטי נוספים, מוזמנים לפנות לטליה וורצקי,
+מנהלת הקיווק של ׳המימד השלישי׳</p>
+                    <p class="third">טלפון      054-6868011 | 072-2201112
+מייל         talya@memad3.com</p>
                 </div>
             </div>
             <div class="right">
@@ -62,6 +66,5 @@ $this->params['breadcrumbs'][] = $this->title;
 
             </div>
         </div>
-        <h1 class="row text-center text-light">Let’s catch your next <strong>Job opportunity</strong></h1>
 
 </div>

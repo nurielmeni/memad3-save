@@ -38,7 +38,7 @@ AppAsset::register($this);
 <body dir="rtl">
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrap <?= $this->params['requestedRout'] ?>">
     <?=  MemadLogoNav::widget(['wrapClass' => 'visible-xs']) ?>
 
     <?php
@@ -69,7 +69,7 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <?= $this->render('footer', ['model' => $this->params['model']]) ?>
+    <?= $this->render('footer', ['model' => $this->params['serachFormModel']]) ?>
 </footer>
 
 <?php $this->endBody() ?>

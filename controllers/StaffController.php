@@ -104,8 +104,14 @@ class StaffController extends MemadController
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $image = UploadedFile::getInstance($model, 'imageUrl');
+            if ($image) {
+                $model->imageUrl = 'uploads/images/' . $image->baseName . '.' . $image->extension;
+                $image->saveAs($model->imageUrl);
+            }
+            
+            if ($model->save()) return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [

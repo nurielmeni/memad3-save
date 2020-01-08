@@ -2,11 +2,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Staff */
 
-$this->title = $model->id;
+$this->title = $model->fullname;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Staff'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
@@ -34,7 +35,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'description:ntext',
             'email:email',
             'linkedin',
-            'imageUrl',
+            [
+                'attribute' => 'imageUrl',
+                'value' => Url::to('@web/' . $model->imageUrl),
+                'format' => ['image', [
+                    'width'=>'140',
+                    'height' => '100',
+                    'alt' => 'Employee Image',
+                    'style' => 'padding: 5px; border: 3px solid #dddddd; border-radius: 6px;',
+                    ]
+                ],
+            ],
         ],
     ]) ?>
 

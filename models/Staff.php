@@ -37,7 +37,7 @@ class Staff extends \yii\db\ActiveRecord
             ['linkedin', 'url'],
             [['description'], 'string'],
             [['fullname'], 'string', 'max' => 64],
-            [['jobTitle', 'email', 'in'], 'string', 'max' => 256],
+            [['jobTitle', 'email', 'linkedin'], 'string', 'max' => 256],
             [['imageUrl'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }

@@ -44,7 +44,7 @@ AppAsset::register($this);
         'brandLabel' => Html::img(Url::to('@web/images/logo.png'), ['height' => '76', 'alt' => 'Memad3 Logo', 'style' => 'margin-top: -30px;']),
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
-            'class' => 'navbar-inverse navbar-sttaic-top',
+            'class' => 'navbar-default navbar-sttaic-top',
         ],
     ]);
     echo Nav::widget([
@@ -53,6 +53,7 @@ AppAsset::register($this);
             ['label' => 'בית', 'url' => ['/site/index']],
             ['label' => 'עלינו', 'url' => ['/site/about']],
             ['label' => 'לוח המשרות', 'url' => ['/site/jobs']],
+            ['label' => 'חברי צוות', 'url' => ['/staff/index']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'כניסה', 'url' => ['/site/login']]
             ) : (
@@ -80,7 +81,7 @@ AppAsset::register($this);
 </div>
 
 <footer class="footer">
-    <?= $this->render('footer', ['model' => $this->params['model']]) ?>
+    <?= $this->render('footer', ['model' => $this->params['serachFormModel']]) ?>
 </footer>
 
 <?php $this->endBody() ?>

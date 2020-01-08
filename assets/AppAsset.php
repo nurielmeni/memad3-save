@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         'css/memad3.css',
     ];
     public $js = [
+        'js/site.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -9,7 +9,7 @@ $this->title = Yii::$app->name;
 <div class="site-index">
 
     <section class="header">
-        <?= $this->render('sections/header', ['model' => $this->params['model']]) ?>
+        <?= $this->render('sections/header', ['serachFormModel' => $this->params['serachFormModel']]) ?>
     </section>
     
     <section class="about">

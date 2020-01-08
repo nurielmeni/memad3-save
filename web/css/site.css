@@ -4,6 +4,8 @@ html,
 body {
     height: 100%;
     font-family: 'Assistant', sans-serif;
+    font-size: 18px;
+    color: #004374;
 }
 
 .text-extra-light {
@@ -18,7 +20,6 @@ body {
     height: auto;
     min-height: calc(100% - 410px);
     margin: 0 auto;
-    padding: 0 0 60px;
 }
 
 .wrap > main {
@@ -51,7 +52,7 @@ ul.navbar-nav {
 nav .navbar-header li.nav-item-employers {
     height: 40px;
     border-radius: 20px;
-    margin: 5px 0;
+    margin: 5px auto;
     background-color: #004374;
 }
 
@@ -78,6 +79,10 @@ section.header .actions {
     margin-top: 7.5vw;
 }
 
+section.header .actions > a {
+    margin: 10px;
+}
+
 main section.about {
     min-height: 60vw;
     background: linear-gradient(0deg, rgba(1, 53, 92, 0.7), rgba(1, 53, 92, 0.7)), url(../images/about-bg.jpg) no-repeat center center;
@@ -90,7 +95,7 @@ main section.customers {
     margin: 50px auto;
 }
 
-main section.customers .customers-title {
+.memad-section-title {
     width: 400px;
     margin: 50px auto;
     border-bottom: 1px solid #81f3ff;
@@ -193,8 +198,6 @@ a.desc:after {
 
 .navbar .navbar-header {
     float: left;
-    margin-left: 0;
-    margin-right: 10px !important;
 }
 
 .navbar .navbar-header .navbar-toggle {
@@ -230,6 +233,146 @@ section.about .row .text-side p.actions {
     margin-top: 20px;
 }
 
+
+/*************** ABOUT PAGE ****************/
+div.wrap.site-about .navbar .container, 
+div.wrap.site-about .navbar .container .nav li a,
+div.wrap.site-about .memad-logo-nav,
+div.wrap.site-contact .navbar .container, 
+div.wrap.site-contact .navbar .container .nav li a,
+div.wrap.site-contact .memad-logo-nav,
+div.wrap.site-employers .navbar .container, 
+div.wrap.site-employers .navbar .container .nav li a,
+div.wrap.site-employers .memad-logo-nav {
+    color: #fff;
+}
+
+.navbar .container.menu-collapse, 
+.memad-logo-nav.menu-collapse {
+    color: #004374 !important;
+}
+
+div.wrap.site-about .navbar-toggle span.icon-bar,
+div.wrap.site-contact .navbar-toggle span.icon-bar,
+div.wrap.site-employers .navbar-toggle span.icon-bar {
+    background-color: #fff;
+}
+
+.navbar-toggle span.icon-bar.menu-collapse {
+    background-color: #004374 !important;
+}
+
+div.wrap.site-about .navbar-toggle span.icon-bar {
+    background-color: #fff;
+}
+
+div.wrap.site-about nav .navbar-header li.nav-item-employers {
+    background-color: transparent;
+    border: 1px solid #fff;
+}
+
+div.wrap.site-about header {
+    background: linear-gradient(0deg, rgba(1, 53, 92, 0.5), rgba(1, 53, 92, 0.5)), url('../images/about-header-bg.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 385px;
+    background-position-y: calc(100% + 13vw);
+}
+
+header h1 {
+    padding-top: 150px;
+}
+
+article.about {
+    background: url('../images/about-article-bg.png') no-repeat center center;
+    background-size: cover;
+    padding: 70px 0;
+}
+
+article.about > div.row {
+    max-width: 800px;
+}
+
+article.about > div.row > div {
+    padding: 20px;
+}
+
+section.about-employees > div.panels-employees {
+    max-width: 1400px;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+/*********** CONTACT *************/
+.site-contact header {
+    height: 25vw;
+    max-height: 450px;
+    min-height: 300px;
+    background: linear-gradient(0deg, rgba(1, 53, 92, 0.5), rgba(1, 53, 92, 0.5)), url('../images/contact.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+.site-employers .site-contact header {    
+    background: linear-gradient(0deg, rgba(1, 53, 92, 0.5), rgba(1, 53, 92, 0.5)), url('../images/contact-employers.jpg') no-repeat center center;
+    background-position: -270px -520px;
+}
+
+.site-contact h1 {
+    margin: 20px 0;
+}
+
+.contact-body {
+    background: url('../images/home-bg.png') no-repeat center center;
+    background-size: cover;
+    padding: 60px 0;
+    margin: 0 auto;
+}
+
+.contact-body.employers {
+    background: #effcff;
+}
+
+.contact-body .employer-info {
+    border-radius: 10px;
+    height: calc(100% - 15px);
+    box-shadow: 0 10px 50px 0 rgba(81, 87, 88, 0.31);
+    padding: 40px;
+}
+
+.contact-body .employer-info p.first {
+    padding-left: 65px;
+}
+
+.contact-body .employer-info p.second {
+    padding-left: 130px;
+}
+
+.contact-body .employer-info p.third {
+    padding-left: 200px;
+}
+
+.contact-body .map {
+    background: url('../images/contact-map.jpg') no-repeat center center;
+    background-size: cover;
+    height: calc(100% - 38px);
+}
+
+.contact-body > div {
+    width: 580px;
+    padding: 25px;
+    min-height: 315px;
+}
+
+form#contact-form {
+    padding-top: 15px;
+}
+
+form .inline-fields > div,
+form button[type="submit"] {
+    width: calc(50% - 10px);
+    min-width: 250px;
+}
+
 @media (min-width: 767.1px) and (max-width: 816px) {
     .container {
         width: 100% !important;
@@ -254,12 +397,23 @@ section.about .row .text-side p.actions {
     }
 }
 
+@media (max-width: 1400px) {
+    section.about-employees > div.panels-employees {
+        max-width: 1040px;    
+    }
+}
 
 @media(max-width:1200px) {
     section.header h1 {
         font-size: 65px;
         line-height: 60px; 
     }       
+}
+
+@media (max-width: 1040px) {
+    section.about-employees > div.panels-employees {
+        max-width: 700px;  
+    }
 }
 
 @media(max-width:767px) {
@@ -271,7 +425,6 @@ section.about .row .text-side p.actions {
         background-color: rgba(0, 42, 74, 0.95);
         text-align: center;
         margin: 0;
-        margin-top: 80px;
         width: 100%;
     }
     
@@ -307,6 +460,12 @@ section.about .row .text-side p.actions {
     }
 }
 
+@media (max-width: 700px) {
+    section.about-employees > div.panels-employees {
+        max-width: 360px;    
+    }
+}
+
 @media (max-width: 600px) {
     div.memad-logo-nav-wrap {
         width: 180px !important;
@@ -321,5 +480,13 @@ section.about .row .text-side p.actions {
     
     main section.customers .customers-title {
         width: 80%;
+    }
+    
+    section.header-about {
+        background-position-y: 100%;
+    }
+    
+    form .inline-fields > div, form button[type="submit"] {
+        width: 100%;
     }
 }

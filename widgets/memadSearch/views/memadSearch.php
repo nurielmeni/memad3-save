@@ -39,7 +39,7 @@ use app\widgets\customSelect\CustomSelectWidget;
         ])->label(false) ?>
    
         <div class="form-group">
-            <?= Html::submitButton($submitLabel, ['class' => 'btn memad3 gradiant', 'name' => 'search-button']) ?>
+            <?= Html::submitButton($submitLabel, ['class' => 'btn memad3 gradiant fg-white', 'name' => 'search-button']) ?>
         </div>
 
     <?php ActiveForm::end(); ?>
