@@ -20,7 +20,7 @@ services:
       - MYSQL_USER=memad
       - MYSQL_PASSWORD=memad
     volumes:
-      - db-data:/var/lib/mysql
+      - memad-db:/var/lib/mysql
     networks:
       - memadnet
   pma:
@@ -38,4 +38,4 @@ services:
 networks:
   memadnet:
 volumes:
-  db-data:
+  memad-db:

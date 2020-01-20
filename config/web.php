@@ -5,7 +5,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'memad3',
-    'name' => 'Memad 3',
+    'name' => 'המימד השלישי',
     'language' => 'he-IL',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
@@ -65,6 +65,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'site/job/<jobId:\d+>' => 'site/job',
             ],
         ],
     ],

@@ -18,12 +18,12 @@ use app\widgets\customSelect\CustomSelectWidget;
         <?php $form = ActiveForm::begin([
             'action' => [$action], 
             'id' => 'search-form' . $name,
-            'options' => ['class' => 'flex ' . ($inline ? 'row' : 'column')]
+            'options' => ['class' => 'flex center flex-wrap ' . ($inline ? 'row' : 'column')]
         ]); ?>   
     <?php else : ?>
         <?php $form = ActiveForm::begin([
             'id' => 'search-form' . $name,
-            'options' => ['class' => 'text-center flex ' . ($inline ? 'row' : 'column')]
+            'options' => ['class' => 'text-center flex center flex-wrap ' . ($inline ? 'row' : 'column')]
         ]); ?>   
     <?php endif; ?>
 

@@ -10,7 +10,10 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\SearchForm;
+use \app\components\Niloos;
 use app\models\Staff;
+use yii\web\UploadedFile;
+use app\models\ApplyForm;
 
 class SiteController extends MemadController
 {
@@ -63,6 +66,11 @@ class SiteController extends MemadController
      */
     public function actionIndex()
     {
+        if ($this->serachFormModel->load(Yii::$app->request->post())) {
+            $this->view->params['requestedRout'] = 'site-jobs';
+            return $this->render('jobs', ['jobs' => $this->serachFormModel->search()]);
+        }
+        
         return $this->render('index');
     }
 
@@ -84,6 +92,21 @@ class SiteController extends MemadController
         ]);
     }
 
+    public function actionApply()
+    {
+        $model = new ApplyForm();
+
+        if (Yii::$app->request->isPost) {
+            $model->cvFile = UploadedFile::getInstance($model, 'cvFile');
+            if ($model->upload()) {
+                // file is uploaded successfully send mail
+                return $this->renderAjax('thank');
+            }
+        }
+        
+        return $this->renderAjax('apply', ['model' => $model]);
+    }
+    
     /**
      * Displays contact page.
      *
@@ -110,7 +133,27 @@ class SiteController extends MemadController
      */
     public function actionJobs()
     {
-        return $this->render('jobs');
+        if ($this->serachFormModel->load(Yii::$app->request->post())) {
+            return $this->render('jobs', ['jobs' => $this->serachFormModel->search()]);
+        }
+        
+        return $this->render('jobs', ['jobs' => []]);
+    }
+    
+    /**
+     * Displays Jobs page.
+     *
+     * @return string
+     */
+    public function actionJob($jobId)
+    {
+        if ($this->serachFormModel->load(Yii::$app->request->post())) {
+            return $this->render('jobs', ['jobs' => $this->serachFormModel->search()]);
+        }
+        
+        $model = new \app\models\Job(['jobId' => $jobId]);
+        
+        return $this->render('job', ['job' => $model->job]);
     }
     
     /**

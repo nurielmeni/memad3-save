@@ -33,7 +33,11 @@ nav .container {
     line-height: 23px;
 }
 
-nav li a {
+.fg-white a {
+    color: #fff;
+}
+
+.fg-blue a {
     color: #004374;
 }
 
@@ -235,37 +239,6 @@ section.about .row .text-side p.actions {
 
 
 /*************** ABOUT PAGE ****************/
-div.wrap.site-about .navbar .container, 
-div.wrap.site-about .navbar .container .nav li a,
-div.wrap.site-about .memad-logo-nav,
-div.wrap.site-contact .navbar .container, 
-div.wrap.site-contact .navbar .container .nav li a,
-div.wrap.site-contact .memad-logo-nav,
-div.wrap.site-employers .navbar .container, 
-div.wrap.site-employers .navbar .container .nav li a,
-div.wrap.site-employers .memad-logo-nav {
-    color: #fff;
-}
-
-.navbar .container.menu-collapse, 
-.memad-logo-nav.menu-collapse {
-    color: #004374 !important;
-}
-
-div.wrap.site-about .navbar-toggle span.icon-bar,
-div.wrap.site-contact .navbar-toggle span.icon-bar,
-div.wrap.site-employers .navbar-toggle span.icon-bar {
-    background-color: #fff;
-}
-
-.navbar-toggle span.icon-bar.menu-collapse {
-    background-color: #004374 !important;
-}
-
-div.wrap.site-about .navbar-toggle span.icon-bar {
-    background-color: #fff;
-}
-
 div.wrap.site-about nav .navbar-header li.nav-item-employers {
     background-color: transparent;
     border: 1px solid #fff;
@@ -373,6 +346,41 @@ form button[type="submit"] {
     min-width: 250px;
 }
 
+/************** JOBS ********************/
+header.header-jobs {
+    background: linear-gradient(0deg, rgba(1, 53, 92, 0.5), rgba(1, 53, 92, 0.5)), url(../images/jobs-bg.jpg) no-repeat center;
+    background-size: cover;
+    min-height: 385px;
+    background-position-y: calc(100% + 13vw);
+}
+
+header.header-jobs.single-job {
+    background: linear-gradient(0deg, rgba(1, 53, 92, 0.5), rgba(1, 53, 92, 0.5)), url(../images/job-bg.jpg) no-repeat center top;
+    background-size: cover;
+}
+
+main .site-jobs .memad-search-wrapper {
+    padding-top: 50px;
+    padding-bottom: 25px;
+    background-color: #effcff;
+}
+
+.site-jobs section.job-list {
+    column-count: auto;
+    max-width: 1400px;
+    padding: 80px;
+    column-width: 350px;
+    column-gap: 3em;
+}
+
+.site-job .site-jobs section.job-list {
+    column-width: auto;
+    max-width: 900px;
+}
+
+.site-jobs section.job-list > div {
+    break-inside: avoid;
+}
 @media (min-width: 767.1px) and (max-width: 816px) {
     .container {
         width: 100% !important;
@@ -395,6 +403,10 @@ form button[type="submit"] {
     .container {
         width: 84% !important;
     }
+    
+    header.header-jobs.single-job {
+        background-position-y: calc(100% + 40vw);
+    }
 }
 
 @media (max-width: 1400px) {
@@ -407,7 +419,7 @@ form button[type="submit"] {
     section.header h1 {
         font-size: 65px;
         line-height: 60px; 
-    }       
+    }     
 }
 
 @media (max-width: 1040px) {
@@ -467,6 +479,10 @@ form button[type="submit"] {
 }
 
 @media (max-width: 600px) {
+    .site-jobs header.header-jobs {
+        background-position-y: 100%;
+    }
+    
     div.memad-logo-nav-wrap {
         width: 180px !important;
     }

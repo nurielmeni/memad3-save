@@ -26,8 +26,6 @@ AppAsset::register($this);
     <meta name="author" content="Meni Nuriel">
     <meta charset="<?= Yii::$app->charset ?>">
     
-    <meta property="og:title" content="<?= Yii::$app->name ?>" />
-    <meta property="og:url" content="http://memad3.com/" />
     <meta property="og:image" content="<?= Url::to('@web/images/logo.png') ?>" />
 
     <link rel="icon" type="image/png" href="<?= Url::to('@web/images/logo.png') ?>" />

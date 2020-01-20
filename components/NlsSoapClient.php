@@ -5,7 +5,7 @@ use SoapClient;
 use yii\helpers\Url;
 use SoapHeader;
 use SoapVar;
-
+use yii\base\UserException;
 
 /**
  * Description of NlsSoapClient
@@ -41,6 +41,6 @@ class NlsSoapClient extends SoapClient
         }  
         
         restore_exception_handler();
-        throw $e;
+        throw new UserException($e);
     }
 }

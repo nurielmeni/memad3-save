@@ -9,6 +9,8 @@ use SoapVar;
 use app\helpers\Helper;
 use app\components\NlsSoapClient;
 use SimpleXMLElement;
+use app\components\Settings;
+use yii\base\UserException;
 
 
 /**
@@ -16,6 +18,10 @@ use SimpleXMLElement;
  */
 class Niloos
 {
+    const LANG_HEB = '1037';
+    const LANG_ENG = '1033';
+    
+    private $settingsClass;
     private $format = 'd-m-Y H:i:s';
     private $cache;
     private $settings;
@@ -28,18 +34,21 @@ class Niloos
     private $siteId = '037685f2-9adc-4d65-954b-7212be692d85';
     private $username = 'campaign';
     private $password = 'pass2019';
-    private $languageCode = '1033';
+    private $languageCode;
     private $client;
     private $auth;
     
     public function __construct() {
         $this->cache = \Yii::$app->cache;
+        $this->settingsClass = new Settings();
         
         // Flush cache
         //$this->cache->flush();
             
-        $this->loadSettings();
+        $this->settings = $this->settingsClass->getSettings();
+        $this->setProperties($this->settings);
         $this->authenticate();
+        $this->languageCode = self::LANG_HEB;
     }
     
     private function loadSettings() {
@@ -57,8 +66,7 @@ class Niloos
         }
     }
     
-    private function setProperties() {
-        $settingsArr = Helper::xml2array($this->settings);
+    private function setProperties($settingsArr) {
         $this->nlsSecurityWsdlUrl = $settingsArr['nlsSecurityWsdlUrl'];
         $this->nlsCardsWsdlUrl = $settingsArr['nlsCardsWsdlUrl'];
         $this->nlsDirectoryWsdlUrl = $settingsArr['nlsDirectoryWsdlUrl'];
@@ -214,17 +222,59 @@ class Niloos
             try{
                 $response = $this->client->JobGetConsideringIsDiscreetFiled($params);
                 return $response->JobGetConsideringIsDiscreetFiledResult;
-            } catch (Exception $ex) {
-                var_dump($ex);
-                echo 'Request ' . $this->client->__getLastRequest();
-                echo 'Response ' . $this->client->__getLastResponse();
-                die;
+            } catch (UserException $ex) {
+//                var_dump($ex);
+//                echo 'Request ' . $this->client->__getLastRequest();
+//                echo 'Response ' . $this->client->__getLastResponse();
+//                die;
+                throw new UserException($e);
+            } catch (\SoapFault $e) {
+                throw new UserException($e);
             }
         }, 60 * 10);
         
         return $res;
     }
     
+    public function getListByListName($listName) {
+        //$this->cache->flush();
+        $languageCode = $this->languageCode;
+        
+        $res = \Yii::$app->cache->getOrSet('List_' . $listName, function () use ($listName, $languageCode){
+            $this->setClient('directory');
+            $List = [];
+            
+            try {
+                $params = [
+                    'transactionCode' => Helper::newGuid(),
+                    'listName' => $listName,
+                    'languageId' => $languageCode,
+                ];
+                
+                $res = $this->client->GetListByListName($params)->GetListByListNameResult;
+
+                if (!property_exists($res, 'HunterListItem')) 
+                    return $List;
+
+                foreach ($res->HunterListItem as $listItem) {
+                    $list[] = [
+                        'id' => $listItem->Value,
+                        'text' => $listItem->Text,
+                    ];
+                }
+                
+                return $list;
+            } catch (Exception $ex) {
+                var_dump($ex);
+                echo 'Request ' . $this->client->__getLastRequest();
+                echo 'Response ' . $this->client->__getLastResponse();
+                die;
+            }
+        }, 60 * 20);
+        
+        return $res;
+    }
+
     /*
      * @return Jobs by filter
      */
@@ -236,7 +286,7 @@ class Niloos
                     $jobsXml =  $this->client->JobsGetByFilter($filter)->JobsGetByFilterResult->any;
                     $jobsXml = substr($jobsXml, strpos($jobsXml, '<diffgr:'));
                     $jobsObj = simplexml_load_string($jobsXml);
-                    $jobs = json_decode(json_encode($jobsObj), TRUE);
+                    $jobs = json_decode(json_encode($jobsObj), TRUE);                    
                     if (key_exists('DocumentElement', $jobs) && key_exists('Jobs', $jobs['DocumentElement'])) {
                         $jobsArray = $jobs['DocumentElement']['Jobs'];
                         

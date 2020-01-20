@@ -26,8 +26,6 @@ AppAsset::register($this);
     <meta name="author" content="Meni Nuriel">
     <meta charset="<?= Yii::$app->charset ?>">
     
-    <meta property="og:title" content="<?= Yii::$app->name ?>" />
-    <meta property="og:url" content="http://memad3.com/" />
     <meta property="og:image" content="<?= Url::to('@web/images/logo.png') ?>" />
 
     <link rel="icon" type="image/png" href="<?= Url::to('@web/images/logo.png') ?>" />
@@ -39,10 +37,9 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap <?= $this->params['requestedRout'] ?>">
-    <?=  MemadLogoNav::widget(['wrapClass' => 'visible-xs']) ?>
+    <?=  MemadLogoNav::widget(['wrapClass' => 'visible-xs' . ($this->params['requestedRout'] == 'site-index' ? ' fg-blue' : ' fg-white')]) ?>
 
-    <?php
-    NavBar::begin([
+    <?php NavBar::begin([
         'brandUrl' => false,
         'renderInnerContainer' => true,
         'headerContent' => \app\widgets\Memad3Social::widget([
@@ -54,13 +51,13 @@ AppAsset::register($this);
         'options' => [
             'class' => 'navbar navbar-static-top',
         ],
-    ]);
+    ]); ?>
     
-    echo $this->render('nav', ['class' => 'navbar-header', 'user' => false]);
+    <?= $this->render('nav', ['class' => 'navbar-header' . ($this->params['requestedRout'] == 'site-index' ? ' fg-blue' : ' fg-white'), 'user' => false]) ?>
     
-    echo MemadLogoNav::widget(['wrapClass' => 'hidden-xs']);
-    NavBar::end();
-    ?>
+    <?= MemadLogoNav::widget(['wrapClass' => 'hidden-xs' . ($this->params['requestedRout'] == 'site-index' ? ' fg-blue' : ' fg-white')]) ?>
+    
+    <?php NavBar::end(); ?>
 
     <main>
         <?= Alert::widget() ?>
