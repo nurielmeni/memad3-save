@@ -3,3 +3,5 @@
 /web/assets/
 /vagrant/
 /nbproject/private/
+/web/index.php
+/config/db.php
