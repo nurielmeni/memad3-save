@@ -23,7 +23,7 @@
 ממוחשבת המאפשרת איתור והתאמה של מועמדים ומועמדות
 במהירות, ביעילות ובכפוף לדרישות התפקיד שנקבל מכם.</p>
         <p class="actions">
-            <button class="btn btn-default memad3 trans">עוד על המימד השלישי</button>
+            <button class="btn fg-white memad3 trans">עוד על המימד השלישי</button>
         </p>
     </div>
 </div>
