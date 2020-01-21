@@ -76,6 +76,11 @@ and open the template in the editor.
     border: solid 1px;
 }
 
+.btn.memad3.trans:hover {
+    background-color: #fff;
+    color: #004374;
+}
+
 .btn.md.memad3 {
     height: 56px;
     
